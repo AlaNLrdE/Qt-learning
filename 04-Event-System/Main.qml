@@ -38,25 +38,6 @@ Window {
         }
     }
 
-    SquareButton{
-        id: firstButton // Unique id for the first instance
-        // Define a JavaScript function to handle the signal
-        function handleSignaltest(message) {
-            console.log("Signaltest received with message:", message)
-        }
-
-        // Connect the signal to the JavaScript function
-        onSignaltest: (message) => handleSignaltest(message)
-        // This will print "Deactivated" when the mouse is released.
-        onDeactivated: console.log("Deactivated")
-        // This will print "Activated at: <xPosition> <yPosition>" when the mouse is pressed.
-        onActivated: {
-            (xPosition, yPosition) => console.log("Activated at:", xPosition, yPosition)
-            firstButton.x += 20;  // Move to the right by 20 pixels
-            firstButton.y += 10;  // Move down by 10 pixels
-        }
-    }
-
     SquareButton {
         id: secondButton // Unique id for the first instance
         color: "#FF0000" // Override the color property for this instance
@@ -78,6 +59,26 @@ Window {
         onActivated: {
             (xPosition, yPosition) => console.log("Second Button Activated at:", xPosition, yPosition)
             secondButton.width = 200
+        }
+    }
+
+    SquareButton{
+        id: firstButton // Unique id for the first instance
+        // Define a JavaScript function to handle the signal
+        function handleSignaltest(message) {
+            console.log("Signaltest received with message:", message)
+        }
+
+        // Connect the signal to the JavaScript function
+        onSignaltest: (message) => handleSignaltest(message)
+        // This will print "Deactivated" when the mouse is released.
+        onDeactivated: console.log("Deactivated")
+        // This will print "Activated at: <xPosition> <yPosition>" when the mouse is pressed.
+        onActivated: {
+            (xPosition, yPosition) => console.log("Activated at:", xPosition, yPosition)
+            firstButton.x += 20;  // Move to the right by 20 pixels
+            firstButton.y += 10;  // Move down by 10 pixels
+            firstButton.rotation += 45
         }
     }
 }
