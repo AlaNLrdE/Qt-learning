@@ -8,8 +8,6 @@ Window {
     title: qsTr("Hello World")
     color: "#00414A"
 
-    property string textToShow: "Click on me!"
-
     component SquareButton: Rectangle {
         id: root
 
@@ -48,6 +46,7 @@ Window {
         radius: 50
 
         property int squareWidth: 150
+        property string textToShow: "Click on me!"
 
         width: squareWidth
 
@@ -62,13 +61,13 @@ Window {
         onDeactivated: {
             console.log("Second Button Deactivated")
             secondButton.width = squareWidth
-            textId.text = textToShow
+            textToShow = "Click on me"
         }
         // This will print "Activated at: <xPosition> <yPosition>" when the mouse is pressed.
         onActivated: {
             (xPosition, yPosition) => console.log("Second Button Activated at:", xPosition, yPosition)
             secondButton.width = 200
-            textId.text = "ahhh release me!"
+            textToShow = "ahhh release me!"
         }
 
         Rectangle {
@@ -81,7 +80,7 @@ Window {
             Text {
                 id: textId
                 anchors.centerIn: parent
-                text: textToShow
+                text: secondButton.textToShow
             }
         }
     }
