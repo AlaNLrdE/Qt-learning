@@ -8,6 +8,8 @@ Window {
     title: qsTr("Hello World")
     color: "#00414A"
 
+    property string textToShow: "Click on me!"
+
     component SquareButton: Rectangle {
         id: root
 
@@ -43,6 +45,11 @@ Window {
         id: secondButton // Unique id for the first instance
         color: "#FF0000" // Override the color property for this instance
         anchors.centerIn: parent // Align the button to the center of the parent (window)
+        radius: 50
+
+        property int squareWidth: 150
+
+        width: squareWidth
 
         // Define a JavaScript function to handle the signal
         function handleSignaltest(message) {
@@ -54,12 +61,14 @@ Window {
         // This will print "Deactivated" when the mouse is released.
         onDeactivated: {
             console.log("Second Button Deactivated")
-            secondButton.width = 100
+            secondButton.width = squareWidth
+            textId.text = textToShow
         }
         // This will print "Activated at: <xPosition> <yPosition>" when the mouse is pressed.
         onActivated: {
             (xPosition, yPosition) => console.log("Second Button Activated at:", xPosition, yPosition)
             secondButton.width = 200
+            textId.text = "ahhh release me!"
         }
 
         Rectangle {
@@ -68,6 +77,12 @@ Window {
             height: secondButton.height / 2
             anchors.centerIn: parent
             color: "#0000FF"
+
+            Text {
+                id: textId
+                anchors.centerIn: parent
+                text: textToShow
+            }
         }
     }
 
