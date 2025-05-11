@@ -65,7 +65,7 @@ Window {
         }
         // This will print "Activated at: <xPosition> <yPosition>" when the mouse is pressed.
         onActivated: {
-            (xPosition, yPosition) => console.log("Second Button Activated at:", xPosition, yPosition)
+            console.log("Second Button Activated at:", xPosition, yPosition)
             secondButton.width = 200
             textToShow = "ahhh release me!"
         }
@@ -98,7 +98,7 @@ Window {
         onDeactivated: console.log("Deactivated")
         // This will print "Activated at: <xPosition> <yPosition>" when the mouse is pressed.
         onActivated: {
-            (xPosition, yPosition) => console.log("Activated at:", xPosition, yPosition)
+            console.log("Activated at:", xPosition, yPosition)
             firstButton.x += 20;  // Move to the right by 20 pixels
             firstButton.y += 10;  // Move down by 10 pixels
             firstButton.rotation += 45
@@ -111,5 +111,8 @@ Window {
             anchors.centerIn: parent
             color: "#FF00FF"
         }
+    }
+    Component.onCompleted: {
+        console.log("View loaded!")
     }
 }
