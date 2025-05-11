@@ -103,6 +103,14 @@ Window {
             firstButton.x += 20; // Move to the right by 20 pixels
             firstButton.y += 10; // Move down by 10 pixels
             firstButton.rotation += 45
+
+            if (firstButton.x >= parent.width) {
+                firstButton.x = 0
+                firstButton.y = 0
+            } else if (firstButton.y >= parent.height) {
+                firstButton.x = 0
+                firstButton.y = 0
+            }
         }
 
         Rectangle {
