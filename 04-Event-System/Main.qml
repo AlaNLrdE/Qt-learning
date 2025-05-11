@@ -43,6 +43,9 @@ Window {
             onPressed: (mouse) => {
                 root.activated(mouse.x, mouse.y)
                 root.signaltest("Button pressed!") // Emit signaltest
+                bindingRect.height = Qt.binding(function() {
+                    return bindingRect.width * 2.5
+                })
             }
         }
     }
@@ -90,6 +93,23 @@ Window {
                 id: textId
                 anchors.centerIn: parent
                 text: secondButton.textToShow
+                font.bold: true
+            }
+        }
+    }
+
+    Rectangle {
+        id: bindingRect
+        x: 10
+        y: 200
+        width: 20
+        height: width * 1.5
+        color: "red"
+
+        MouseArea {
+            anchors.fill: parent
+            onPressed: (mouse) => {
+                bindingRect.width = bindingRect.width + 10
             }
         }
     }
