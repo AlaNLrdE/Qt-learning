@@ -8,6 +8,13 @@ Window {
     title: qsTr("Hello World")
     color: "#00414A"
 
+    Image {
+        id: image
+        source: "qrc:/pics/logo.jpg"
+        anchors.fill: parent // Make the image fill its parent (the Window)
+        fillMode: Image.Stretch // Use Image.Stretch to make it stretch
+    }
+
     component SquareButton: Rectangle {
         id: root
 
@@ -43,7 +50,8 @@ Window {
     SquareButton {
         id: secondButton // Unique id for the first instance
         color: "#FF0000" // Override the color property for this instance
-        anchors.centerIn: parent // Align the button to the center of the parent (window)
+        anchors.bottom: parent.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
         radius: 50
 
         property int squareWidth: 150
