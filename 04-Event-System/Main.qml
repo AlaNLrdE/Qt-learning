@@ -43,8 +43,9 @@ Window {
             onPressed: (mouse) => {
                 root.activated(mouse.x, mouse.y)
                 root.signaltest("Button pressed!") // Emit signaltest
+                bindingRect.width = 20
                 bindingRect.height = Qt.binding(function() {
-                    return bindingRect.width * 2.5
+                    return bindingRect.width * 1.5
                 })
             }
         }
