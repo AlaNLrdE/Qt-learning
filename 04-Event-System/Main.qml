@@ -19,6 +19,7 @@ Window {
         property int side: 100
         width: side; height: side
         color: "#2CDE85"
+        radius: 20
 
         MouseArea {
             anchors.fill: parent
@@ -91,8 +92,8 @@ Window {
 
         Rectangle {
             id:pinkRectId
-            width: secondButton.width / 2
-            height: secondButton.height / 2
+            width: firstButton.width / 2
+            height: firstButton.height / 2
             anchors.centerIn: parent
             color: "#FF00FF"
         }
