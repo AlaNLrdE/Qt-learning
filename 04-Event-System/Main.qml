@@ -72,11 +72,11 @@ Window {
         }
 
         Rectangle {
-            id:redRectId
+            id:blueRectId
             width: secondButton.width / 2
             height: secondButton.height / 2
             anchors.centerIn: parent
-            color: "#0000FF"
+            color: "dodgerblue"
 
             Text {
                 id: textId
