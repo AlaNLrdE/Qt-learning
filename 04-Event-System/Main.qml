@@ -60,6 +60,14 @@ Window {
             (xPosition, yPosition) => console.log("Second Button Activated at:", xPosition, yPosition)
             secondButton.width = 200
         }
+
+        Rectangle {
+            id:redRectId
+            width: secondButton.width / 2
+            height: secondButton.height / 2
+            anchors.centerIn: parent
+            color: "#0000FF"
+        }
     }
 
     SquareButton{
@@ -79,6 +87,14 @@ Window {
             firstButton.x += 20;  // Move to the right by 20 pixels
             firstButton.y += 10;  // Move down by 10 pixels
             firstButton.rotation += 45
+        }
+
+        Rectangle {
+            id:pinkRectId
+            width: secondButton.width / 2
+            height: secondButton.height / 2
+            anchors.centerIn: parent
+            color: "#FF00FF"
         }
     }
 }
