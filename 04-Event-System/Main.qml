@@ -12,12 +12,13 @@ Window {
         id: root
 
         // These are the signal declarations.
-        signal activated(xPosition:real, yPosition:real)
+        signal activated(xPosition: real, yPosition: real)
         signal deactivated
         signal signaltest(message: string)
 
         property int side: 100
-        width: side; height: side
+        width: side;
+        height: side
         color: "#2CDE85"
         radius: 20
 
@@ -25,16 +26,16 @@ Window {
             anchors.fill: parent
             // This will emit the signal when the mouse is released.
             onReleased: {
-                            root.deactivated()
-                            root.signaltest("Button released!") // Emit signaltest
+                root.deactivated()
+                root.signaltest("Button released!") // Emit signaltest
             }
             /*
-            This will emit the signal when the mouse is pressed.
-            The mouse position is passed as an argument.
+              This will emit the signal when the mouse is pressed.
+              The mouse position is passed as an argument.
             */
             onPressed: (mouse) => {
-                            root.activated(mouse.x, mouse.y)
-                            root.signaltest("Button pressed!") // Emit signaltest
+                root.activated(mouse.x, mouse.y)
+                root.signaltest("Button pressed!") // Emit signaltest
             }
         }
     }
@@ -65,13 +66,13 @@ Window {
         }
         // This will print "Activated at: <xPosition> <yPosition>" when the mouse is pressed.
         onActivated: {
-            console.log("Second Button Activated at:", xPosition, yPosition)
+            console.log("Second Button Activated at:", xPosition, yPosition); // Corrected line
             secondButton.width = 200
             textToShow = "ahhh release me!"
         }
 
         Rectangle {
-            id:blueRectId
+            id: blueRectId
             width: secondButton.width / 2
             height: secondButton.height / 2
             anchors.centerIn: parent
@@ -85,7 +86,7 @@ Window {
         }
     }
 
-    SquareButton{
+    SquareButton {
         id: firstButton // Unique id for the first instance
         // Define a JavaScript function to handle the signal
         function handleSignaltest(message) {
@@ -98,14 +99,14 @@ Window {
         onDeactivated: console.log("Deactivated")
         // This will print "Activated at: <xPosition> <yPosition>" when the mouse is pressed.
         onActivated: {
-            console.log("Activated at:", xPosition, yPosition)
-            firstButton.x += 20;  // Move to the right by 20 pixels
-            firstButton.y += 10;  // Move down by 10 pixels
+            console.log("First Button Activated at:", xPosition, yPosition);
+            firstButton.x += 20; // Move to the right by 20 pixels
+            firstButton.y += 10; // Move down by 10 pixels
             firstButton.rotation += 45
         }
 
         Rectangle {
-            id:pinkRectId
+            id: pinkRectId
             width: firstButton.width / 2
             height: firstButton.height / 2
             anchors.centerIn: parent
