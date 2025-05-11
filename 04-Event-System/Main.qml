@@ -65,7 +65,7 @@ Window {
             textToShow = "Click on me"
         }
         // This will print "Activated at: <xPosition> <yPosition>" when the mouse is pressed.
-        onActivated: {
+        onActivated: function(xPosition, yPosition) {
             console.log("Second Button Activated at:", xPosition, yPosition); // Corrected line
             secondButton.width = 200
             textToShow = "ahhh release me!"
@@ -98,7 +98,7 @@ Window {
         // This will print "Deactivated" when the mouse is released.
         onDeactivated: console.log("Deactivated")
         // This will print "Activated at: <xPosition> <yPosition>" when the mouse is pressed.
-        onActivated: {
+        onActivated: function(xPosition, yPosition) {
             console.log("First Button Activated at:", xPosition, yPosition);
             firstButton.x += 20; // Move to the right by 20 pixels
             firstButton.y += 10; // Move down by 10 pixels
